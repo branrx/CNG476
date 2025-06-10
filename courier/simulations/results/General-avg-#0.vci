@@ -1,0 +1,717 @@
+file 2079144 1749549332                                         
+version 3
+run General-0-20250610-12:54:50-71432
+attr configname General
+attr datetime 20250610-12:54:50
+attr datetimef 20250610-125450
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars "$0=\"avg\""
+attr iterationvarsd avg
+attr iterationvarsf avg-
+attr measurement "$0=\"avg\""
+attr network package_delivery
+attr processid 71432
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../inet4.4/images
+config network package_delivery
+config **.maxTransmissionDuration 4s
+config **.energyDetection -110dBm
+config **.vector-recording true
+config rng-class cMersenneTwister
+config **.loRaGW.numUdpApps 1
+config **.loRaGW.packetForwarder.localPort 2000
+config **.loRaGW.packetForwarder.destPort 1000
+config **.loRaGW.packetForwarder.destAddresses "\"server\""
+config **.loRaGW.packetForwarder.indexNumber 0
+config **.server.numApps 1
+config **.server.**.evaluateADRinServer true
+config **.server.app[0].typename ServerApp
+config **.server.app[0].destAddresses "\"loRaGW\""
+config **.server.app[0].destPort 2000
+config **.server.app[0].localPort 1000
+config **.server.app[0].adrMethod "\"avg\""
+config **.numberOfPacketsToSend 0
+config sim-time-limit 1d
+config simtime-resolution -11
+config repeat 30
+config **.timeToFirstPacket exponential(1000s)
+config **.timeToNextPacket exponential(1000s)
+config **.alohaChannelModel false
+config **.numberOfNodes 1
+config **.constraintAreaMaxX 1000m
+config **.constraintAreaMaxY 1000m
+config **.node1.**.initialX 537m
+config **.node1.**.initialY 519m
+config **.node1.numApps 1
+config **.node1.app[0].typename NewApp
+config **.node1.app[0].**node_id 1
+config **.node1.app[0].**node_seed 123
+config **.node2.**.initialX 839m
+config **.node2.**.initialY 322m
+config **.node2.**.displayAddresses true
+config **.node2.numApps 1
+config **.node2.app[0].typename NewApp
+config **.node2.app[0].**node_id 2
+config **.node2.app[0].**node_seed 221
+config **.node3.numApps 1
+config **.node3.app[0].typename NewApp
+config **.node3.app[0].**node_id 3
+config **.node3.app[0].**node_seed 113
+config **.node4.numApps 1
+config **.node4.app[0].typename NewApp
+config **.node4.app[0].**node_id 4
+config **.node4.app[0].**node_seed 531
+config **.**initialLoRaSF 12
+config **.**initialLoRaTP 14dBm
+config **.**initialLoRaBW "125 kHz"
+config **.**initialLoRaCR 4
+config **.**.initFromDisplayString false
+config **.**.evaluateADRinNode false
+config **.numberOfGateways 1
+config **.loRaGW.**.initialX 546m
+config **.loRaGW.**.initialY 297m
+config **.LoRaNic.radio.energyConsumer.typename LoRaEnergyConsumer
+config **.**.energySourceModule "\"^.IdealEpEnergyStorage\""
+config **.LoRaNic.radio.energyConsumer.configFile "xmldoc(\"energyConsumptionParameters.xml\")"
+config **.sigma 3.57
+config **.constraintAreaMinX 0m
+config **.constraintAreaMinY 0m
+config **.constraintAreaMinZ 0m
+config **.constraintAreaMaxZ 0m
+config LoRaNetworkTest.**.radio.separateTransmissionParts false
+config LoRaNetworkTest.**.radio.separateReceptionParts false
+config **.ipv4Delayer.config "xmldoc(\"cloudDelays.xml\")"
+config **.radio.radioMediumModule "\"loRaMedium\""
+config **.loRaMedium.pathLossType "\"LoRaLogNormalShadowing\""
+config **.minInterferenceTime 0s
+config **.displayAddresses true
+config **.loRaMedium.mediumLimitCacheType "\"LoRaMediumCache\""
+config **.loRaMedium.rangeFilter "\"communicationRange\""
+config **.loRaMedium.neighborCacheType "\"LoRaNeighborCache\""
+config **.loRaMedium.neighborCache.range 546m
+config **.loRaMedium.neighborCache.refillPeriod 3000s
+
+vector 0 package_delivery.loRaGW.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 1 package_delivery.loRaGW.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 2 package_delivery.loRaGW.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 3 package_delivery.server.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 4 package_delivery.server.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 5 package_delivery.server.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 6 package_delivery.node1.LoRaNic.radio.IdealEpEnergyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+vector 7 package_delivery.node2.LoRaNic.radio.IdealEpEnergyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+vector 8 package_delivery.node3.LoRaNic.radio.IdealEpEnergyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+vector 9 package_delivery.node4.LoRaNic.radio.IdealEpEnergyStorage powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+vector 10 package_delivery.loRaGW.LoRaGWNic.radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 11 package_delivery.node1.LoRaNic.radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 12 package_delivery.node1.LoRaNic.radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+vector 13 package_delivery.node2.LoRaNic.radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 14 package_delivery.node2.LoRaNic.radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+vector 15 package_delivery.node3.LoRaNic.radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 16 package_delivery.node3.LoRaNic.radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+vector 17 package_delivery.node4.LoRaNic.radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 18 package_delivery.node4.LoRaNic.radio.energyConsumer powerConsumption:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source powerConsumptionChanged
+attr title "Power consumption"
+vector 19 package_delivery.loRaGW.LoRaGWNic.radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 20 package_delivery.loRaGW.LoRaGWNic.radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 21 package_delivery.node2.app[0] "SF Vector" ETV
+vector 22 package_delivery.node2.app[0] "TP Vector" ETV
+vector 23 package_delivery.node2.LoRaNic.queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 24 package_delivery.node2.LoRaNic.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 25 package_delivery.node2.LoRaNic.queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 26 package_delivery.node2.LoRaNic.queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 27 package_delivery.node2.LoRaNic.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 28 package_delivery.node2.LoRaNic.radio.IdealEpEnergyStorage residualEnergyCapacity:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source residualEnergyCapacityChanged
+attr title "Residual energy capacity"
+vector 29 package_delivery.node2.LoRaNic.radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 30 package_delivery.node2.LoRaNic.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 31 package_delivery.node2.LoRaNic.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 32 package_delivery.loRaGW.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 33 package_delivery.loRaGW.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, packetBytes"
+vector 34 package_delivery.loRaGW.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 35 package_delivery.loRaGW.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 36 package_delivery.loRaGW.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 37 package_delivery.loRaGW.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 38 package_delivery.loRaGW.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 39 package_delivery.loRaGW.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 40 package_delivery.loRaGW.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 41 package_delivery.loRaGW.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 42 package_delivery.loRaGW.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 43 package_delivery.loRaGW.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 44 package_delivery.myRouter.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 45 package_delivery.myRouter.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 46 package_delivery.myRouter.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 47 package_delivery.myRouter.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, packetBytes"
+vector 48 package_delivery.myRouter.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 49 package_delivery.myRouter.eth[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 50 package_delivery.myRouter.eth[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 51 package_delivery.myRouter.eth[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 52 package_delivery.myRouter.eth[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 53 package_delivery.myRouter.eth[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 54 package_delivery.myRouter.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 55 package_delivery.myRouter.eth[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 56 package_delivery.myRouter.eth[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 57 package_delivery.myRouter.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 58 package_delivery.loRaGW.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 59 package_delivery.loRaGW.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 60 package_delivery.loRaGW.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 61 package_delivery.myRouter.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, packetBytes"
+vector 62 package_delivery.myRouter.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 63 package_delivery.myRouter.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 64 package_delivery.myRouter.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 65 package_delivery.myRouter.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 66 package_delivery.myRouter.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 67 package_delivery.myRouter.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 68 package_delivery.myRouter.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 69 package_delivery.myRouter.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 70 package_delivery.myRouter.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 71 package_delivery.server.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 72 package_delivery.server.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 73 package_delivery.server.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 74 package_delivery.server.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, packetBytes"
+vector 75 package_delivery.server.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 76 package_delivery.server.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 77 package_delivery.server.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 78 package_delivery.server.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 79 package_delivery.server.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 80 package_delivery.server.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 81 package_delivery.server.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 82 package_delivery.server.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 83 package_delivery.server.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 84 package_delivery.server.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 85 package_delivery.myRouter.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 86 package_delivery.myRouter.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+0	23690 8 0 0 0 0 1 0 0 0 0
+1	23698 8 0 0 0 0 1 0 0 0 0
+2	23706 8 0 0 0 0 1 0 0 0 0
+3	23714 8 0 0 0 0 1 0 0 0 0
+4	23722 8 0 0 0 0 1 0 0 0 0
+5	23730 8 0 0 0 0 1 0 0 0 0
+6	23738 32 0 0 0 0 4 0 0 0 0
+7	23770 168 0 47 0 936.712128 12 0 0.1452 0.5808 0.08433216
+8	23938 32 0 0 0 0 4 0 0 0 0
+9	23970 32 0 0 0 0 4 0 0 0 0
+10	24002 27 0 0 0 0 3 0 4 4 16
+11	24029 27 0 0 0 0 3 0 1 1 1
+12	24056 27 0 0 0 0 3 0 0 0 0
+13	24083 58 0 47 0 936.712128 5 0 3 5 11
+14	24141 171 0 47 0 936.712128 11 0 0.1452 0.5808 0.08433216
+15	24312 27 0 0 0 0 3 0 1 1 1
+16	24339 27 0 0 0 0 3 0 0 0 0
+17	24366 27 0 0 0 0 3 0 1 1 1
+18	24393 27 0 0 0 0 3 0 0 0 0
+19	24420 9 0 0 0 0 1 1 1 1 1
+20	24429 9 0 0 0 0 1 1 1 1 1
+21	24438 13 40 40 935 935 1 12 12 12 144
+22	24451 13 40 40 935 935 1 14 14 14 196
+23	24464 13 41 41 935 935 1 80 80 80 6400
+24	24477 127932 41 41 0.1 935 9350 0 0 0 0
+25	152409 12 41 41 935 935 1 0 0 0 0
+26	152421 13 41 41 935 935 1 80 80 80 6400
+27	152434 127932 41 41 0.1 935 9350 0 0 0 0
+28	280366 43 41 47 935 936.712128 2 -0.2486009856 0 -0.2486009856 0.061802450041291
+29	280409 62 41 47 935 936.712128 4 0 2 4 6
+30	280471 12 41 41 935 935 1 0 0 0 0
+31	280483 12 41 41 935 935 1 0 0 0 0
+32	280495 25 52 52 936.71212898089 936.71212898089 1 35 35 35 1225
+33	280520 25 53 53 936.71212898089 936.71212898089 1 28 28 28 784
+34	280545 50 54 69 936.71212898089 936.71213023289 2 28 55 83 3809
+35	280595 52 55 70 936.71212898089 936.71213023289 2 368 584 952 476480
+36	280647 128168 55 55 0.1 936.7 9367 0 0 0 0
+37	408815 48 55 70 936.71212898089 936.71213023289 2 0 0 0 0
+38	408863 52 55 70 936.71212898089 936.71213023289 2 368 584 952 476480
+39	408915 128168 55 55 0.1 936.7 9367 0 0 0 0
+40	537083 50 55 70 936.71212898089 936.71213023289 2 46 73 119 7445
+41	537133 48 55 70 936.71212898089 936.71213023289 2 0 0 0 0
+42	537181 48 55 70 936.71212898089 936.71213023289 2 0 0 0 0
+43	537229 50 57 72 936.71212955689 936.71213088089 2 64 73 137 9425
+44	537279 50 58 73 936.71212960689 936.71213093089 2 64 73 137 9425
+45	537329 50 58 73 936.71212960689 936.71213093089 2 64 73 137 9425
+46	537379 75 59 88 936.71212960689 936.71213218289 3 46 55 147 7257
+47	537454 25 60 60 936.71212960689 936.71212960689 1 28 28 28 784
+48	537479 75 61 90 936.71212960689 936.71213218289 3 28 55 111 4593
+49	537554 26 62 62 936.71212960689 936.71212960689 1 368 368 368 135424
+50	537580 128168 62 62 0.1 936.7 9367 0 0 0 0
+51	665748 24 62 62 936.71212960689 936.71212960689 1 0 0 0 0
+52	665772 26 62 62 936.71212960689 936.71212960689 1 368 368 368 135424
+53	665798 128168 62 62 0.1 936.7 9367 0 0 0 0
+54	793966 25 62 62 936.71212960689 936.71212960689 1 46 46 46 2116
+55	793991 24 62 62 936.71212960689 936.71212960689 1 0 0 0 0
+56	794015 24 62 62 936.71212960689 936.71212960689 1 0 0 0 0
+57	794039 25 65 65 936.71213018289 936.71213018289 1 64 64 64 4096
+58	794064 25 66 66 936.71213023289 936.71213023289 1 64 64 64 4096
+59	794089 25 66 66 936.71213023289 936.71213023289 1 64 64 64 4096
+60	794114 25 67 67 936.71213023289 936.71213023289 1 46 46 46 2116
+61	794139 25 75 75 936.71213093089 936.71213093089 1 28 28 28 784
+62	794164 52 77 91 936.71213093089 936.71213218289 2 368 584 952 476480
+63	794216 128168 77 77 0.1 936.7 9367 0 0 0 0
+64	922384 48 77 91 936.71213093089 936.71213218289 2 0 0 0 0
+65	922432 52 77 91 936.71213093089 936.71213218289 2 368 584 952 476480
+66	922484 128168 77 77 0.1 936.7 9367 0 0 0 0
+67	1050652 50 77 91 936.71213093089 936.71213218289 2 46 73 119 7445
+68	1050702 48 77 91 936.71213093089 936.71213218289 2 0 0 0 0
+69	1050750 48 77 91 936.71213093089 936.71213218289 2 0 0 0 0
+70	1050798 25 79 79 936.71213150689 936.71213150689 1 64 64 64 4096
+71	1050823 25 80 80 936.71213155689 936.71213155689 1 64 64 64 4096
+72	1050848 25 80 80 936.71213155689 936.71213155689 1 64 64 64 4096
+73	1050873 25 81 81 936.71213155689 936.71213155689 1 46 46 46 2116
+74	1050898 25 82 82 936.71213155689 936.71213155689 1 28 28 28 784
+75	1050923 25 83 83 936.71213155689 936.71213155689 1 28 28 28 784
+76	1050948 26 84 84 936.71213155689 936.71213155689 1 368 368 368 135424
+77	1050974 128168 84 84 0.1 936.7 9367 0 0 0 0
+78	1179142 24 84 84 936.71213155689 936.71213155689 1 0 0 0 0
+79	1179166 26 84 84 936.71213155689 936.71213155689 1 368 368 368 135424
+80	1179192 128168 84 84 0.1 936.7 9367 0 0 0 0
+81	1307360 25 84 84 936.71213155689 936.71213155689 1 46 46 46 2116
+82	1307385 24 84 84 936.71213155689 936.71213155689 1 0 0 0 0
+83	1307409 24 84 84 936.71213155689 936.71213155689 1 0 0 0 0
+84	1307433 25 86 86 936.71213213289 936.71213213289 1 64 64 64 4096
+85	1307458 25 87 87 936.71213218289 936.71213218289 1 64 64 64 4096
+86	1307483 25 87 87 936.71213218289 936.71213218289 1 64 64 64 4096
+vector 87 package_delivery.server.udp packetReceived:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceived
+attr title "packets received, packetBytes"
+3	1307722 23 97 97 936.71213288089 936.71213288089 1 1 1 1 1
+70	1307745 25 93 93 936.71213283089 936.71213283089 1 73 73 73 5329
+71	1307770 25 94 94 936.71213288089 936.71213288089 1 73 73 73 5329
+72	1307795 25 94 94 936.71213288089 936.71213288089 1 73 73 73 5329
+73	1307820 25 95 95 936.71213288089 936.71213288089 1 55 55 55 3025
+87	1307845 25 97 97 936.71213288089 936.71213288089 1 35 35 35 1225
+vector 88 package_delivery.node1.LoRaNic.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 89 package_delivery.node1.LoRaNic.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 90 package_delivery.node3.LoRaNic.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 91 package_delivery.node3.LoRaNic.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 92 package_delivery.node4.LoRaNic.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 93 package_delivery.node4.LoRaNic.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+24	1309163 262 97 97 935.1 936.71213288089 18 0 800 800 640000
+27	1309425 262 97 97 935.1 936.71213288089 18 0 800 800 640000
+36	1309687 38 97 97 936.71213288089 936.71213288089 1 78464.464345368 78464.464345368 78464.464345368 6156672165.0055
+39	1309725 38 97 97 936.71213288089 936.71213288089 1 78464.464345368 78464.464345368 78464.464345368 6156672165.0055
+50	1309763 38 97 97 936.71213288089 936.71213288089 1 30330.801343588 30330.801343588 30330.801343588 919957510.14417
+53	1309801 38 97 97 936.71213288089 936.71213288089 1 30330.801343588 30330.801343588 30330.801343588 919957510.14417
+63	1309839 38 97 97 936.71213288089 936.71213288089 1 78464.464345368 78464.464345368 78464.464345368 6156672165.0055
+66	1309877 38 97 97 936.71213288089 936.71213288089 1 78464.464345368 78464.464345368 78464.464345368 6156672165.0055
+77	1309915 38 97 97 936.71213288089 936.71213288089 1 30330.801343588 30330.801343588 30330.801343588 919957510.14417
+80	1309953 38 97 97 936.71213288089 936.71213288089 1 30330.801343588 30330.801343588 30330.801343588 919957510.14417
+88	1309991 128192 97 97 0.1 936.71213288089 9368 0 0 0 0
+89	1438183 128192 97 97 0.1 936.71213288089 9368 0 0 0 0
+90	1566375 128192 97 97 0.1 936.71213288089 9368 0 0 0 0
+91	1694567 128192 97 97 0.1 936.71213288089 9368 0 0 0 0
+92	1822759 128192 97 97 0.1 936.71213288089 9368 0 0 0 0
+93	1950951 128192 97 97 0.1 936.71213288089 9368 0 0 0 0
+

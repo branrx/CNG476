@@ -1,0 +1,3 @@
+package courier;
+
+@license(LGPL);

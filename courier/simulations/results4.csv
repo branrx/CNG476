@@ -1,0 +1,8 @@
+Time,Event,Details
+562,loading,Nothing to load. No parcels at node 4
+612,parcels arrived,10 parcels have arrived.
+656,loading,Loaded 10 parcels. Capacity 10/40parcels
+676,truck 4,Arrived at node 1. Unloading
+676,delivery,Delivered 5 of 5parcels
+768,parcels arrived,12 parcels have arrived.
+859,parcels arrived,5 parcels have arrived.
