@@ -24,31 +24,31 @@ Using git clone --link-- to this repository.
 
 ###  Structure
 The package is structured as follows:
-courier:
-- Binaries
-- Dependencies
-- Includes
-- simulations
-  - results
-- src
-- out
+- courier:
+  - Binaries
+  - Dependencies
+  - Includes
+  - simulations
+    - results
+  - src
+  - out
 
-- network file .ned and intialisation files are located in simulations directory
+- network file .ned and initialisation files are located in simulations directory
 - dependecies are stored in Dependencies folder
 
 ## HOW TO RUN
 -  open omnet++, (project was developed with v6.0)
 -  go to import existing project
--  select the courier directory and click okay.
+-  select the courier directory and click confirm.
 -  now the tricky part,
 -  from the Dependencies copy all files
 -  paste the files in your flora-> src -> LoRa directory
--  go to project properties
+-  go to courier package properties
 -  find Makemake under OMNET++
--  select src:makmake...
+-  select src:makemake...
 -  click options
 -  go to compile tab
--  add your flora and inet src directories and click okay
+-  add your flora and inet src directories and click confirm.
 -  clean project and build
 -  now go to courier -> simulations directory
 -  open omnetpp.init file
