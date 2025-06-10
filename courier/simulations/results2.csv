@@ -1,14 +1,69 @@
 Time,Event,Details
-28,parcels arrived,8 parcels have arrived.
-174,parcels arrived,7 parcels have arrived.
-256,parcels arrived,8 parcels have arrived.
-260,parcels arrived,8 parcels have arrived.
-316,parcels arrived,4 parcels have arrived.
-338,parcels arrived,9 parcels have arrived.
-424,parcels arrived,7 parcels have arrived.
-462,parcels arrived,9 parcels have arrived.
-579,parcels arrived,9 parcels have arrived.
-648,parcels arrived,3 parcels have arrived.
-717,parcels arrived,11 parcels have arrived.
-801,parcels arrived,7 parcels have arrived.
-935,parcels arrived,12 parcels have arrived.
+925,parcels arrived,5 parcels have arrived.
+1427,loading,Loaded 5 parcels. Capacity 5/56parcels
+1427,Route,Generated route: 3->1->4
+1427,Truck,Dispatched, arrival at next node: 2375
+2074,parcels arrived,11 parcels have arrived.
+2375,truck 2,Arrived at node 3. Unloading
+2375,delivery,Delivered 1 of 1parcels
+3665,parcels arrived,3 parcels have arrived.
+3866,truck 2,Finished loading. Proceeding to node 1
+4917,parcels arrived,11 parcels have arrived.
+5335,Truck broken down,928 to repair.
+6263,truck finished repairing, heading to node 1
+6263,truck 2,Arrived at node 1. Unloading
+6263,delivery,Delivered 4 of 4parcels
+6995,parcels arrived,12 parcels have arrived.
+7199,truck 2,Finished loading. Proceeding to node 4
+8236,parcels arrived,15 parcels have arrived.
+8405,truck 2,Arrived at node 4. Unloading
+8405,unloading,Nothing to unload at node 4
+9668,truck 2,Route finished. Returning to base.
+10149,parcels arrived,6 parcels have arrived.
+11274,parcels arrived,13 parcels have arrived.
+12205,truck 2,Arrived at base. Next dispatch at 12429
+12429,loading,Loaded 56 parcels. Capacity 56/56parcels
+12429,Route,Generated route: 1->3->4
+12429,Truck,Dispatched, arrival at next node: 17088
+13662,parcels arrived,3 parcels have arrived.
+14982,parcels arrived,8 parcels have arrived.
+15907,parcels arrived,10 parcels have arrived.
+17067,parcels arrived,7 parcels have arrived.
+17088,truck 2,Arrived at node 1. Unloading
+17088,delivery,Delivered 22 of 23parcels
+17595,truck 2,Finished loading. Proceeding to node 3
+18216,parcels arrived,4 parcels have arrived.
+18712,truck 2,Arrived at node 3. Unloading
+18712,delivery,Delivered 31 of 33parcels
+19054,parcels arrived,14 parcels have arrived.
+19529,truck 2,Finished loading. Proceeding to node 4
+20596,truck 2,Arrived at node 4. Unloading
+20596,unloading,Nothing to unload at node 4
+20752,parcels arrived,10 parcels have arrived.
+21558,truck 2,Route finished. Returning to base.
+21970,parcels arrived,8 parcels have arrived.
+22470,truck 2,Arrived at base. Next dispatch at 22482
+22482,loading,Loaded 56 parcels. Capacity 56/56parcels
+22482,Route,Generated route: 4->1->3
+22482,Truck,Dispatched, arrival at next node: 23749
+22704,parcels arrived,9 parcels have arrived.
+23749,truck 2,Arrived at node 4. Unloading
+23749,delivery,Delivered 0 of 0parcels
+23766,parcels arrived,8 parcels have arrived.
+24903,parcels arrived,6 parcels have arrived.
+25370,truck 2,Finished loading. Proceeding to node 1
+25788,parcels arrived,9 parcels have arrived.
+26713,Truck broken down,845 to repair.
+27298,parcels arrived,4 parcels have arrived.
+27558,truck finished repairing, heading to node 1
+27558,truck 2,Arrived at node 1. Unloading
+27558,delivery,Delivered 25 of 27parcels
+27953,truck 2,Finished loading. Proceeding to node 3
+28274,parcels arrived,8 parcels have arrived.
+28800,Total time broken down,1773
+28800,Time traveling between nodes,19438
+28800,Total broken down count,2
+28800,Parcels remaining at base,67
+28800,Parcels still in truck,29
+28800,Parcels delivered successfully,166
+28800,Parcels failed to deliver,5

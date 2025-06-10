@@ -26,7 +26,7 @@ network package_delivery
             @display("p=480,268");
         }
         server: StandardHost {
-            @display("p=546,212");
+            @display("p=546,212;i=device/router");
         }
         networkConfigurator: Ipv4FlatNetworkConfigurator {
             @display("p=848,34");

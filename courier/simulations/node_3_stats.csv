@@ -1,0 +1,10 @@
+Variable,Value
+28800,Total time truck idle,3410
+28800,Total time broken down,3216
+28800,Time traveling between nodes,19669
+28800,Total broken down count,3
+28800,Time spent unloading,6128
+28800,Parcels remaining at base,84
+28800,Parcels still in truck,0
+28800,Parcels delivered successfully,84
+28800,Parcels failed to deliver,1
