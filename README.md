@@ -25,13 +25,13 @@ Using git clone --link-- to this repository.
 ###  Structure
 The package is structured as follows:
 courier:
-        ->  Binaries
-        ->  Dependencies
-        ->  Includes
-        ->  simulations
-            ->  results
-        ->  src
-        ->  out
+        - Binaries
+        -   Dependencies
+        -   Includes
+        -   simulations
+            -   results
+        -   src
+        -   out
 
 - network file .ned and intialisation files are located in simulations directory
 - dependecies are stored in Dependencies folder
